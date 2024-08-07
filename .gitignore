@@ -18,3 +18,16 @@
 /airline-ticket-sale-client/.env.production.local
 /airline-ticket-sale-client/.env.test.local
 /airline-ticket-sale-client/out
+
+
+# Ignore files inside airline-ticket-sale-client/my-nextjs-app directory nextjs
+
+/airline-ticket-sale-client/my-nextjs-app/.next
+/airline-ticket-sale-client/my-nextjs-app/node_modules
+/airline-ticket-sale-client/my-nextjs-app/.vs
+/airline-ticket-sale-client/my-nextjs-app/.env.local
+/airline-ticket-sale-client/my-nextjs-app/.env
+/airline-ticket-sale-client/my-nextjs-app/.env.development.local
+/airline-ticket-sale-client/my-nextjs-app/.env.production.local
+/airline-ticket-sale-client/my-nextjs-app/.env.test.local
+/airline-ticket-sale-client/my-nextjs-app/out
