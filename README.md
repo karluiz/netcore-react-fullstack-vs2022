@@ -703,9 +703,12 @@ public class TestAsyncQueryProvider<TEntity> : IAsyncQueryProvider
 
 ## Step 8: Create a React SPA for managing ticket sales.
 
-> create a React SPA for managing ticket sales using create-react-app and tailwindcss
+> create a nextjs app for managing ticket sales using @workspace assistant
 
-- Using VS Code use @workspace /new in chat to create a new React app.
+- Using VS Code use @workspace /new in chat to create a nextjs 14 app with react 18, tailwindcss, rsuite and autoprefixer.
+
+![workspace new](assets/image3.png)
+
 
 
 
