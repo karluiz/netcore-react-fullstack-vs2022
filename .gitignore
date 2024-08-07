@@ -7,3 +7,14 @@
 /airline_ticket_sale_api.Tests/.vs
 /airline_ticket_sale_api.Tests/bin
 /airline_ticket_sale_api.Tests/obj
+
+# Ignore files inside airline-ticket-sale-client directory nextjs
+
+/airline-ticket-sale-client/.next
+/airline-ticket-sale-client/node_modules
+/airline-ticket-sale-client/.vs
+/airline-ticket-sale-client/.env.local
+/airline-ticket-sale-client/.env.development.local
+/airline-ticket-sale-client/.env.production.local
+/airline-ticket-sale-client/.env.test.local
+/airline-ticket-sale-client/out

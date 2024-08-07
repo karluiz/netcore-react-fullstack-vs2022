@@ -701,13 +701,295 @@ public class TestAsyncQueryProvider<TEntity> : IAsyncQueryProvider
 
 - Run test to make sure everything is working as expected.
 
-## Step 8: Create a React SPA for managing ticket sales.
+## Step 8: Create a NEXTJS React for managing ticket sales.
 
 > create a nextjs app for managing ticket sales using @workspace assistant
 
 - Using VS Code use @workspace /new in chat to create a nextjs 14 app with react 18, tailwindcss, rsuite and autoprefixer.
 
 ![workspace new](assets/image3.png)
+
+- We will use Yarn to install the dependencies.
+- Ask copilot CLI how to install yarn globally.
+
+```bash
+ghcs "how to install yarn globally"
+```
+
+- `npm install -g yarn`
+
+- Install the dependencies.
+
+```bash
+yarn install
+```
+
+- Check the application by running it.
+
+```bash
+yarn dev
+```
+
+## Step 9: Create a Layout Component
+
+
+- Create a `layout.tsx` file in the components folder.
+- Use copilot chat to create a layout component with a header and footer.
+
+> @workspace create a layout with navbar and footer using rsuite
+
+- Install rsuite `yarn add rsuite`
+- Create a layout component in the components folder
+
+```tsx
+// src/components/Layout.tsx
+import React from 'react';
+import { Container, Header, Content, Footer, Navbar, Nav } from 'rsuite';
+
+const Layout: React.FC = ({ children }) => {
+  return (
+    <Container>
+      <Header>
+        <Navbar>
+          <Navbar.Brand href="#">Brand</Navbar.Brand>
+          <Nav>
+            <Nav.Item href="/">Home</Nav.Item>
+            <Nav.Item href="/about">About</Nav.Item>
+            <Nav.Item href="/contact">Contact</Nav.Item>
+          </Nav>
+        </Navbar>
+      </Header>
+      <Content>
+        {children}
+      </Content>
+      <Footer>
+        <p>© 2023 Your Company</p>
+      </Footer>
+    </Container>
+  );
+};
+
+export default Layout;
+```
+
+- Change the `_app.tsx` file to use the layout component
+
+```tsx
+// src/pages/_app.tsx
+import React from 'react';
+import { AppProps } from 'next/app';
+import Layout from '../components/Layout';
+import 'rsuite/dist/styles/rsuite-default.css';
+import '../styles/globals.css';
+
+const MyApp = ({ Component, pageProps }: AppProps) => {
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
+};
+
+export default MyApp;
+```
+
+### Troubleshooting
+
+#### Tailwind problems
+
+Check if Tailwind is working properly by adding a Tailwind class to the layout component.
+
+> @workspace why tailwind classes inst working
+
+- Suggest install tailwindcss using `yarn add tailwindcss`
+- Check tailwind config `tailwind.config.js`
+
+```js	
+// tailwind.config.js
+module.exports = {
+  content: [
+    './src/**/*.{js,ts,jsx,tsx}', // Adjust the paths according to your project structure
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+- Import Tailwind CSS in your global styles:
+    
+```css
+/* src/styles/globals.css */
+@import './tailwind.css';
+```
+
+- Check also `_app.tsx` if the global styles are imported properly.
+
+```tsx
+// src/pages/_app.tsx
+import { AppProps } from "next/app";
+import "rsuite/dist/styles/rsuite-default.css";
+import "../styles/globals.css"; // This should import Tailwind CSS
+import Layout from "../components/Layout";
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
+}
+
+export default MyApp;
+```
+
+- Check if application is running `yarn dev`
+
+#### React Problems
+
+- Check if React is installed properly by checking the `package.json` file.
+
+> Use explain in GH Copilot to see how to solve problems...
+
+```json
+{
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "next": "^14.0.0",
+    "rsuite": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^4.0.0"
+  }
+}
+```
+
+- Is going to suggest remove the `node_modules` folder and install the dependencies again.
+
+```bash
+rm -rf node_modules yarn.lock package-lock.json
+yarn install
+```
+
+- Check if the application is running `yarn dev`
+
+## Step 10: Add i18n Support
+
+> @workspace i want to add support i18n using next-translate to my project
+
+- Install next-translate `yarn add next-translate`
+- Update next.config.js: Configure next-translate in your next.config.js file.
+
+```js
+const nextTranslate = require('next-translate');
+
+module.exports = nextTranslate({
+  // Any other Next.js configuration options here
+});
+```
+
+- Create i18n configuration file: Create a new file called i18n.js in the root of your project.
+
+```js
+// i18n.js
+module.exports = {
+  locales: ['en', 'es'], // Add your supported languages here
+  defaultLocale: 'en',
+  pages: {
+    '*': ['common'], // Specify namespaces for each page
+  },
+};
+```
+- Create locales at root level: Create a folder called locales at the root of your project.
+
+- Create translation files: Inside the locales folder, create a folder for each supported language and add translation files.
+
+```json
+// locales/en/common.json
+{
+  "hello": "Hello, World!",
+}
+```
+
+```json
+
+// locales/es/common.json
+{
+  "hello": "¡Hola, Mundo!",
+}
+```
+
+- Update your index page: Update your index page to use the useTranslation hook from next-translate.
+
+```tsx
+
+// src/pages/index.tsx
+import useTranslation from 'next-translate/useTranslation';
+
+const IndexPage: React.FC = () => {
+  const { t } = useTranslation('common');
+  return (
+    <div>
+      <span className="text-xl">Welcome</span>
+      <p>{t('welcome')}</p>
+    </div>
+  );
+};
+
+export default IndexPage;
+```
+
+### Trobleshooting
+
+- If i18n is not working properly, downgrade page to 1.6.0
+
+## Step 11: Adding .env Support
+
+> @workspace i want to add support for .env files in my project
+
+- Install dotenv `yarn add dotenv`
+- Create a .env file in the root of your project
+
+```env
+# .env
+API_MESSAGE="Hello, API from .env!"
+```
+
+- Load environment variables in next.config.js: Update your next.config.js to load the environment variables using dotenv.
+
+```js
+// next.config.js
+require('dotenv').config();
+
+module.exports = {
+
+};
+```
+
+- Test the environment variables: Create a new page to test the environment variables.
+
+```tsx
+// src/pages/hello.ts
+
+import { NextApiRequest, NextApiResponse } from 'next';
+
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  res.status(200).json({ message: process.env.API_MESSAGE });
+}
+```
+
+- Check if the application is running `yarn dev`
+
+## Step 12: Create a Ticket List Page
+
+> @workspace create a ticket list page using rsuite table component
+
+## Step 13: Create a Ticket Form Page
+
+> @workspace create a ticket form page using rsuite form component
 
 
 
