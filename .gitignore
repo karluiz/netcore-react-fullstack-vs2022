@@ -1,0 +1,9 @@
+# Ignore files inside airline-ticket-sale-api directory
+/airline-ticket-sale-api/.vs
+/airline-ticket-sale-api/bin
+/airline-ticket-sale-api/obj
+
+# Ignore files inside airline_ticket_sale_api.Tests directory
+/airline_ticket_sale_api.Tests/.vs
+/airline_ticket_sale_api.Tests/bin
+/airline_ticket_sale_api.Tests/obj

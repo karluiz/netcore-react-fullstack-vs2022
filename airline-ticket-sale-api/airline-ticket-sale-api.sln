@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "airline-ticket-sale-api", "airline-ticket-sale-api.csproj", "{13C9CF38-706E-4E60-AA90-C3AA2910D936}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "airline_ticket_sale_api.Tests", "..\airline_ticket_sale_api.Tests\airline_ticket_sale_api.Tests.csproj", "{3CA39F29-3E9E-43DE-A226-4006C4A3AD5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13C9CF38-706E-4E60-AA90-C3AA2910D936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13C9CF38-706E-4E60-AA90-C3AA2910D936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13C9CF38-706E-4E60-AA90-C3AA2910D936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13C9CF38-706E-4E60-AA90-C3AA2910D936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CA39F29-3E9E-43DE-A226-4006C4A3AD5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CA39F29-3E9E-43DE-A226-4006C4A3AD5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CA39F29-3E9E-43DE-A226-4006C4A3AD5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CA39F29-3E9E-43DE-A226-4006C4A3AD5F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F7091C7-3B8A-4B32-A2A3-78EA5BB86B27}
+	EndGlobalSection
+EndGlobal

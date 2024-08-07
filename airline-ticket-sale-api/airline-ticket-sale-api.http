@@ -1,0 +1,6 @@
+@airline_ticket_sale_api_HostAddress = http://localhost:5214
+
+GET {{airline_ticket_sale_api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
