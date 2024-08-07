@@ -106,6 +106,15 @@ Trust the SQL Server certificate.
 > Use Copilot Chat to generate the Ticket entity.
 
 - How to create a Ticket entity in .NET Core that have the following properties: Id, Name, Price, and Date.
+- Run a migration to create the database and the Ticket table, ask Copilot how?
+
+```bash
+ghcs "how to create a migration in .NET Core"
+```
+
+- `dotnet ef migrations add InitialCreate`
+- `dotnet ef database update`
+
 
 ## Step 5: Create a controller for the Ticket entity.
 
